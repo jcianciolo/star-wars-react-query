@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Planets from './components/Planets';
 import People from './components/People';
 import Films from './components/Films';
+import Starships from './components/Starships';
 import { ReactQueryDevtools } from 'react-query-devtools';
 
 
@@ -15,6 +16,8 @@ function App() {
         return <Films />;
       case ('people'):
         return <People />;
+      case ('starships'):
+        return <Starships />;
       default:
         return <Planets />;
     }

@@ -15,7 +15,7 @@ const People = () => {
         resolvedData,
         latestData,
         status
-    } = usePaginatedQuery(['people', page],  fetchPeople);
+    } = usePaginatedQuery(['people', page], fetchPeople);
 
     return (
         <div>
