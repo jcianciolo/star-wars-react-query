@@ -8,13 +8,24 @@ import { ReactQueryDevtools } from 'react-query-devtools';
 
 function App() {
   const [page, setPage] = useState('planets');
+
+  const renderSwitch = (page) => {
+    switch (page) {
+      case ('films'):
+        return <Films />;
+      case ('people'):
+        return <People />;
+      default:
+        return <Planets />;
+    }
+  }
   return (
     <>
       <div className="App">
         <h1>Star Wars Information</h1>
         <Navbar setPage={setPage} />
         <div className="content">
-          { page === 'planets' ? <Planets /> : <People /> }
+          { renderSwitch(page) }
         </div>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
