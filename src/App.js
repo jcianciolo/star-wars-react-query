@@ -4,12 +4,14 @@ import Planets from './components/Planets';
 import People from './components/People';
 import Films from './components/Films';
 import Starships from './components/Starships';
+import Vehicles from './components/Vehicles';
 import { ReactQueryDevtools } from 'react-query-devtools';
 
 
 function App() {
   const [page, setPage] = useState('planets');
 
+  // routing function
   const renderSwitch = (page) => {
     switch (page) {
       case ('films'):
@@ -18,6 +20,8 @@ function App() {
         return <People />;
       case ('starships'):
         return <Starships />;
+      case ('vehicles'):
+        return <Vehicles />;
       default:
         return <Planets />;
     }

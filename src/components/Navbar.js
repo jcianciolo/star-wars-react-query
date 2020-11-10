@@ -7,7 +7,7 @@ const Navbar = ({ setPage }) => {
             <button onClick={() => setPage('people')}>People</button>
             <button onClick={() => setPage('films')}>Films</button>
             <button onClick={() => setPage('starships')}>Starships</button>
-
+            <button onClick={() => setPage('vehicles')}>Vehicles</button>
         </nav>
     )
 }
