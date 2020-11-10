@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import { usePaginatedQuery } from 'react-query';
-import Person from './Person';
+import Film from './Film';
 
 
-const fetchPeople = async (key, page) => {
-    const res = await fetch(`http://swapi.dev/api/people/?page=${page}`);
+const fetchFilms = async (key, page) => {
+    const res = await fetch(`http://swapi.dev/api/films/?page=${page}`);
     return res.json();  // returns a promise
 }
 
-const People = () => {
+const Films = () => {
     const [page, setPage] = useState(1);
-
     const {
         resolvedData,
         latestData,
         status
-    } = usePaginatedQuery(['people', page],  fetchPeople);
+    } = usePaginatedQuery(['films', page],  fetchFilms);
 
     return (
         <div>
-            <h2>People</h2>
+            <h2>Films</h2>
             {status === 'loading' && (
                 <div>Loading data...</div>
             )}
@@ -40,13 +39,12 @@ const People = () => {
                         disabled={!latestData || !latestData.next}
                     >Next Page</button>  
                     <div>
-                        { resolvedData.results.map(person => <Person key={person.name} person={person} />) }
+                        { resolvedData.results.map(film => <Film key={film.name} film={film} />) }
                     </div>
-                </>    
+                </>
             )}
         </div>
     )
 }
 
-export default People;
-
+export default Films;
